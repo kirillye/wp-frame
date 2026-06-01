@@ -1,0 +1,150 @@
+/*--------------------------------------------------------------
+Typography
+--------------------------------------------------------------*/
+
+body {
+	font-family: var(--wpf-font-body);
+	font-size: var(--wpf-font-size-base);
+	line-height: var(--wpf-line-height-normal);
+	color: var(--wpf-color-text);
+	background-color: var(--wpf-color-bg);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--wpf-font-heading);
+	font-weight: 700;
+	line-height: var(--wpf-line-height-tight);
+	color: var(--wpf-color-heading);
+	margin-bottom: var(--wpf-space-md);
+}
+
+h1 { font-size: var(--wpf-font-size-4xl); }
+h2 { font-size: var(--wpf-font-size-3xl); }
+h3 { font-size: var(--wpf-font-size-2xl); }
+h4 { font-size: var(--wpf-font-size-xl); }
+h5 { font-size: var(--wpf-font-size-lg); }
+h6 { font-size: var(--wpf-font-size-base); }
+
+/* Paragraph */
+p {
+	margin-bottom: var(--wpf-space-lg);
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+/* Links */
+a {
+	color: var(--wpf-color-primary);
+	transition: color var(--wpf-transition-fast);
+}
+
+a:hover,
+a:focus {
+	color: var(--wpf-color-primary-hover);
+}
+
+/* Lists */
+ul,
+ol {
+	margin-bottom: var(--wpf-space-lg);
+	padding-left: var(--wpf-space-xl);
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li {
+	margin-bottom: var(--wpf-space-xs);
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-top: var(--wpf-space-xs);
+}
+
+/* Blockquote */
+blockquote {
+	border-left: 4px solid var(--wpf-color-primary);
+	padding: var(--wpf-space-md) var(--wpf-space-lg);
+	margin: var(--wpf-space-lg) 0;
+	background-color: var(--wpf-color-bg-alt);
+	font-style: italic;
+	color: var(--wpf-color-text-light);
+}
+
+/* Code */
+code,
+kbd,
+tt,
+var {
+	font-family: var(--wpf-font-mono);
+	font-size: 0.9em;
+	background-color: var(--wpf-color-bg-alt);
+	padding: 0.125rem 0.25rem;
+	border-radius: var(--wpf-radius-sm);
+}
+
+pre {
+	font-family: var(--wpf-font-mono);
+	font-size: var(--wpf-font-size-sm);
+	background-color: var(--wpf-color-bg-alt);
+	border: 1px solid var(--wpf-color-border);
+	border-radius: var(--wpf-radius-md);
+	padding: var(--wpf-space-lg);
+	margin-bottom: var(--wpf-space-lg);
+	max-width: 100%;
+	overflow: auto;
+	line-height: var(--wpf-line-height-relaxed);
+}
+
+pre code {
+	background: none;
+	padding: 0;
+}
+
+/* Horizontal rule */
+hr {
+	border: 0;
+	height: 1px;
+	background-color: var(--wpf-color-border);
+	margin: var(--wpf-space-2xl) 0;
+}
+
+/* Small text */
+small {
+	font-size: var(--wpf-font-size-sm);
+}
+
+/* Tables */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: var(--wpf-space-lg);
+}
+
+th,
+td {
+	padding: var(--wpf-space-sm) var(--wpf-space-md);
+	border-bottom: 1px solid var(--wpf-color-border);
+	text-align: left;
+}
+
+th {
+	font-weight: 700;
+	color: var(--wpf-color-heading);
+}
+
+/* Selection */
+::selection {
+	background-color: var(--wpf-color-primary-light);
+	color: var(--wpf-color-text);
+}

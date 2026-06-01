@@ -1,0 +1,20 @@
+/*--------------------------------------------------------------
+WP Frame — точка входа CSS (WP Stack — слои каскада)
+--------------------------------------------------------------*/
+
+@layer reset, base, components, utilities, overrides;
+
+@import 'variables.css' layer(base);
+@import 'reset.css' layer(reset);
+@import 'typography.css' layer(base);
+@import 'utilities.css' layer(utilities);
+
+@import 'components/wpf-card.css' layer(components);
+@import 'components/wpf-btn.css' layer(components);
+@import 'components/wpf-nav.css' layer(components);
+@import 'components/wpf-form.css' layer(components);
+@import 'components/wpf-modal.css' layer(components);
+@import 'components/wpf-home.css' layer(components);
+@import 'components/wpf-portfolio.css' layer(components);
+@import 'components/wpf-layout.css' layer(components);
+@import 'components/wpf-pages.css' layer(components);

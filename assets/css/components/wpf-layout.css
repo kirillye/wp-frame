@@ -1,0 +1,86 @@
+/*--------------------------------------------------------------
+Component: Layout — базовые шаблоны (archive/single/page/search/404)
+--------------------------------------------------------------*/
+
+.wpf-main {
+	padding-block: var(--wpf-space-2xl);
+}
+
+/* Контент + сайдбар. Если сайдбар неактивен — контент занимает всю ширину. */
+.wpf-page-layout {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--wpf-gap);
+}
+
+.wpf-page-layout__content {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.wpf-page-layout .widget-area {
+	flex: 0 0 18rem;
+}
+
+@media (max-width: 768px) {
+	.wpf-page-layout {
+		flex-direction: column;
+	}
+
+	.wpf-page-layout .widget-area {
+		flex-basis: auto;
+		width: 100%;
+	}
+}
+
+/* Заголовок архива/раздела */
+.wpf-page-header {
+	margin-bottom: var(--wpf-space-2xl);
+}
+
+.wpf-page-header__title {
+	font-size: var(--wpf-font-size-4xl);
+	color: var(--wpf-color-heading);
+}
+
+.wpf-page-header__description {
+	margin-top: var(--wpf-space-sm);
+	color: var(--wpf-color-text-light);
+}
+
+/* Навигация по записям */
+.wpf-posts-nav,
+.wpf-post-nav {
+	margin-top: var(--wpf-space-2xl);
+	padding-top: var(--wpf-space-lg);
+	border-top: 1px solid var(--wpf-color-border);
+}
+
+/* Нет результатов */
+.wpf-no-results {
+	text-align: center;
+	padding-block: var(--wpf-space-2xl);
+}
+
+.wpf-no-results__title {
+	font-size: var(--wpf-font-size-3xl);
+	color: var(--wpf-color-heading);
+	margin-bottom: var(--wpf-space-md);
+}
+
+/* 404 */
+.wpf-error-404 {
+	text-align: center;
+	max-width: var(--wpf-container-narrow);
+	margin-inline: auto;
+}
+
+.wpf-error-404__title {
+	font-size: var(--wpf-font-size-4xl);
+	color: var(--wpf-color-heading);
+	margin-bottom: var(--wpf-space-md);
+}
+
+.wpf-error-404__content {
+	text-align: left;
+}

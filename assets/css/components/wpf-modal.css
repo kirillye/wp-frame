@@ -1,0 +1,90 @@
+/*--------------------------------------------------------------
+Component: Modal (BEM)
+--------------------------------------------------------------*/
+
+.wpf-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 200;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 2rem;
+	overflow-y: auto;
+}
+
+.wpf-modal[hidden] {
+	display: none;
+}
+
+.wpf-modal__lead {
+	margin-bottom: var(--wpf-space-lg);
+	color: var(--wpf-color-text-light);
+}
+
+.wpf-modal__overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(15, 23, 42, 0.6);
+	backdrop-filter: blur(4px);
+}
+
+.wpf-modal__content {
+	position: relative;
+	width: 100%;
+	max-width: 480px;
+	background: var(--wpf-color-bg, #fff);
+	border-radius: var(--wpf-radius-lg, 12px);
+	padding: 2rem;
+	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16);
+	margin: auto;
+}
+
+.wpf-modal__close {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.75rem;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+	color: var(--wpf-color-text-light, #64748b);
+	background: none;
+	border: none;
+	border-radius: var(--wpf-radius-sm, 4px);
+	cursor: pointer;
+	transition: color 150ms ease, background 150ms ease;
+}
+
+.wpf-modal__close:hover {
+	color: var(--wpf-color-text, #1e293b);
+	background: var(--wpf-color-bg-alt, #f8fafc);
+}
+
+.wpf-modal__title {
+	font-size: var(--wpf-font-size-2xl, 1.5rem);
+	font-weight: 700;
+	color: var(--wpf-color-heading, #0f172a);
+	margin-bottom: 0.5rem;
+}
+
+/* Animation — open */
+@keyframes wpfModalFadeIn {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+@keyframes wpfModalSlideUp {
+	from { opacity: 0; transform: translateY(16px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+.wpf-modal.is-open .wpf-modal__overlay {
+	animation: wpfModalFadeIn 200ms ease;
+}
+
+.wpf-modal.is-open .wpf-modal__content {
+	animation: wpfModalSlideUp 250ms ease;
+}

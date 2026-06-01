@@ -1,0 +1,73 @@
+/*--------------------------------------------------------------
+Component: Page sections — секции страничных шаблонов (about/contacts/home)
+--------------------------------------------------------------*/
+
+/* Общий hero страниц «О нас» / «Контакты» */
+.wpf-about-hero,
+.wpf-contacts-hero {
+	padding-block: var(--wpf-space-3xl) var(--wpf-space-xl);
+	text-align: center;
+}
+
+.wpf-about-hero__title,
+.wpf-contacts-hero__title {
+	font-size: var(--wpf-font-size-4xl);
+	margin-bottom: var(--wpf-space-md);
+}
+
+.wpf-about-hero__subtitle,
+.wpf-contacts-hero__subtitle {
+	max-width: 40rem;
+	margin-inline: auto;
+	color: var(--wpf-color-text-light);
+}
+
+/* «О нас» — body */
+.wpf-about-body {
+	padding-bottom: var(--wpf-space-3xl);
+}
+
+/* «Контакты» — инфо-блок */
+.wpf-contacts-info {
+	padding-bottom: var(--wpf-space-xl);
+}
+
+.wpf-contacts-info__list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 var(--wpf-space-lg);
+	max-width: 36rem;
+}
+
+.wpf-contacts-info__item {
+	margin-bottom: var(--wpf-space-sm);
+}
+
+/* «Контакты» — форма */
+.wpf-contacts-form {
+	padding-bottom: var(--wpf-space-3xl);
+}
+
+.wpf-contacts-form__container {
+	max-width: 32rem;
+}
+
+.wpf-contacts-form__heading {
+	font-size: var(--wpf-font-size-2xl);
+	margin-bottom: var(--wpf-space-md);
+}
+
+.wpf-contacts-form__lead {
+	margin-bottom: var(--wpf-space-lg);
+	color: var(--wpf-color-text-light);
+}
+
+/* Главная (page-шаблон) — текстовый блок */
+.wpf-page-home-body {
+	padding-bottom: var(--wpf-space-3xl);
+}
+
+/* Главная — действия в CTA */
+.wpf-home-cta__actions {
+	flex-wrap: wrap;
+}

@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+assets/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Composer
+composer.lock
+
+# npm
+package-lock.json
+yarn.lock
+
+# ACF Pro license
+acf-pro-key.txt
+
+# Local by Flywheel
+.local/

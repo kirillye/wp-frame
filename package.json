@@ -1,0 +1,13 @@
+{
+  "name": "my-theme",
+  "version": "1.0.0",
+  "description": "Стартовый шаблон WordPress. Стек: PHP 8.2+, CSS Custom Properties + BEM, Vanilla JS ES6+, ACF Pro ready.",
+  "author": "Inver",
+  "license": "GPL-2.0-or-later",
+  "keywords": ["WordPress", "Theme"],
+  "homepage": "https://example.com/",
+  "scripts": {
+    "lint:css": "stylelint 'assets/css/**/*.css' --fix",
+    "lint:js": "eslint 'assets/js/**/*.js' --fix"
+  }
+}

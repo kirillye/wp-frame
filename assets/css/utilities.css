@@ -1,0 +1,191 @@
+/*--------------------------------------------------------------
+Utility Classes
+--------------------------------------------------------------*/
+
+/* Container */
+.wpf-container {
+	width: 100%;
+	max-width: var(--wpf-container-max);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--wpf-container-padding);
+	padding-right: var(--wpf-container-padding);
+}
+
+.wpf-container--narrow {
+	max-width: var(--wpf-container-narrow);
+}
+
+/* Grid */
+.wpf-grid {
+	display: grid;
+	gap: var(--wpf-gap);
+}
+
+.wpf-grid--2 {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.wpf-grid--3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.wpf-grid--4 {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 768px) {
+	.wpf-grid--2,
+	.wpf-grid--3,
+	.wpf-grid--4 {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.wpf-grid--3,
+	.wpf-grid--4 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* Flex */
+.wpf-flex {
+	display: flex;
+}
+
+.wpf-flex--wrap {
+	flex-wrap: wrap;
+}
+
+.wpf-flex--center {
+	align-items: center;
+	justify-content: center;
+}
+
+.wpf-flex--between {
+	align-items: center;
+	justify-content: space-between;
+}
+
+.wpf-flex--column {
+	flex-direction: column;
+}
+
+.wpf-flex__grow {
+	flex: 1;
+}
+
+/* Gap utilities */
+.wpf-gap-xs { gap: var(--wpf-space-xs); }
+.wpf-gap-sm { gap: var(--wpf-space-sm); }
+.wpf-gap-md { gap: var(--wpf-space-md); }
+.wpf-gap-lg { gap: var(--wpf-space-lg); }
+.wpf-gap-xl { gap: var(--wpf-space-xl); }
+
+/* Spacing utilities */
+.wpf-mt-0 { margin-top: 0; }
+.wpf-mt-sm { margin-top: var(--wpf-space-sm); }
+.wpf-mt-md { margin-top: var(--wpf-space-md); }
+.wpf-mt-lg { margin-top: var(--wpf-space-lg); }
+.wpf-mt-xl { margin-top: var(--wpf-space-xl); }
+
+.wpf-mb-0 { margin-bottom: 0; }
+.wpf-mb-sm { margin-bottom: var(--wpf-space-sm); }
+.wpf-mb-md { margin-bottom: var(--wpf-space-md); }
+.wpf-mb-lg { margin-bottom: var(--wpf-space-lg); }
+.wpf-mb-xl { margin-bottom: var(--wpf-space-xl); }
+
+/* Text utilities */
+.wpf-text-left { text-align: left; }
+.wpf-text-center { text-align: center; }
+.wpf-text-right { text-align: right; }
+
+.wpf-text-sm { font-size: var(--wpf-font-size-sm); }
+.wpf-text-lg { font-size: var(--wpf-font-size-lg); }
+.wpf-text-xl { font-size: var(--wpf-font-size-xl); }
+
+.wpf-font-bold { font-weight: 700; }
+.wpf-font-medium { font-weight: 500; }
+.wpf-font-normal { font-weight: 400; }
+
+.wpf-text-muted { color: var(--wpf-color-text-light); }
+
+/* Screen reader text */
+.wpf-screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.wpf-screen-reader-text:focus {
+	background-color: var(--wpf-color-bg);
+	border-radius: var(--wpf-radius-sm);
+	box-shadow: var(--wpf-shadow-md);
+	clip: auto !important;
+	clip-path: none;
+	color: var(--wpf-color-primary);
+	display: block;
+	font-size: var(--wpf-font-size-sm);
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: var(--wpf-space-sm) var(--wpf-space-md);
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+/* Alignments */
+.wpf-alignleft {
+	float: left;
+	margin-right: var(--wpf-space-lg);
+	margin-bottom: var(--wpf-space-lg);
+}
+
+.wpf-alignright {
+	float: right;
+	margin-left: var(--wpf-space-lg);
+	margin-bottom: var(--wpf-space-lg);
+}
+
+.wpf-aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: var(--wpf-space-lg);
+}
+
+/* Visually hidden */
+.wpf-hidden {
+	display: none;
+}
+
+/* Responsive visibility */
+@media (max-width: 768px) {
+	.wpf-hide-mobile {
+		display: none !important;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.wpf-hide-tablet {
+		display: none !important;
+	}
+}
+
+@media (min-width: 1025px) {
+	.wpf-hide-desktop {
+		display: none !important;
+	}
+}

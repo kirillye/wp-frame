@@ -1,0 +1,163 @@
+/* Theme Settings — Admin Styles */
+
+.wpf-settings-wrap {
+	max-width: 860px;
+}
+
+.wpf-tab-panel {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-top: none;
+	padding: 24px 28px;
+	margin-bottom: 0;
+}
+
+.wpf-settings-footer {
+	background: #f6f7f7;
+	border: 1px solid #c3c4c7;
+	border-top: none;
+	padding: 16px 28px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+/* Toggle switch */
+
+.wpf-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.wpf-toggle input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.wpf-toggle__slider {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 22px;
+	background: #c3c4c7;
+	border-radius: 22px;
+	transition: background 150ms ease;
+	flex-shrink: 0;
+}
+
+.wpf-toggle__slider::after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	border-radius: 50%;
+	transition: transform 150ms ease;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+}
+
+.wpf-toggle input:checked ~ .wpf-toggle__slider {
+	background: #2271b1;
+}
+
+.wpf-toggle input:checked ~ .wpf-toggle__slider::after {
+	transform: translateX(18px);
+}
+
+.wpf-toggle__label {
+	font-size: 14px;
+	color: #1d2327;
+}
+
+/* Secret field */
+
+.wpf-secret-field {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.wpf-secret-field .regular-text {
+	font-family: monospace;
+	letter-spacing: .05em;
+}
+
+.wpf-secret-toggle {
+	min-width: 36px;
+	padding: 0 8px !important;
+	font-size: 16px !important;
+	line-height: 28px !important;
+	height: 30px !important;
+}
+
+.wpf-secret-set {
+	color: #00a32a;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+/* Override notice */
+
+.wpf-override-notice {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0 0 8px;
+	padding: 6px 10px;
+	background: #fcf9e8;
+	border-left: 3px solid #dba617;
+	font-size: 12px;
+	color: #50400a;
+	border-radius: 0 4px 4px 0;
+}
+
+/* Test buttons */
+
+.wpf-test-block {
+	margin-top: 24px;
+	padding-top: 20px;
+	border-top: 1px solid #f0f0f1;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.wpf-test-result {
+	font-size: 13px;
+	font-weight: 600;
+	padding: 4px 10px;
+	border-radius: 4px;
+}
+
+.wpf-test-result.is-success {
+	background: #edfaef;
+	color: #00a32a;
+}
+
+.wpf-test-result.is-error {
+	background: #fce8e8;
+	color: #d63638;
+}
+
+/* Счётчики и сторонний код: сохранять переносы строк как в источнике */
+
+textarea.wpf-script-code {
+	box-sizing: border-box;
+	max-width: 100%;
+	min-height: 12rem;
+	font-family: Consolas, Monaco, "Courier New", monospace;
+	font-size: 12px;
+	line-height: 1.35;
+	tab-size: 2;
+	white-space: pre;
+	overflow-wrap: normal;
+	overflow-x: auto;
+}

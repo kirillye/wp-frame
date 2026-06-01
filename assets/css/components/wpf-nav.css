@@ -1,0 +1,537 @@
+/*--------------------------------------------------------------
+Component: Navigation (BEM) + мобильный drawer слева
+--------------------------------------------------------------*/
+
+.wpf-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	padding: var(--wpf-space-md) 0;
+	border-bottom: 1px solid var(--wpf-color-border);
+	background-color: rgba(255, 255, 255, 0.88);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	transition: box-shadow var(--wpf-transition-base);
+}
+
+.wpf-header.is-scrolled {
+	box-shadow: var(--wpf-shadow-md);
+	border-bottom-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+	.wpf-header {
+		background-color: rgba(15, 23, 42, 0.88);
+	}
+}
+
+[data-theme='dark'] .wpf-header {
+	background-color: rgba(15, 23, 42, 0.88);
+}
+
+.wpf-header__inner {
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--wpf-space-sm);
+}
+
+.wpf-header__nav-slot {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+/* Бургер: виден только на мобильном */
+.wpf-nav__toggle {
+	position: relative;
+	z-index: 120;
+	box-sizing: content-box;
+	display: none;
+	width: var(--wpf-space-xl);
+	min-height: 2.75rem;
+	padding: var(--wpf-space-sm);
+	color: var(--wpf-color-text);
+	cursor: pointer;
+	background: transparent;
+	border: 1px solid transparent;
+	border-radius: var(--wpf-radius-md);
+}
+
+.wpf-nav__toggle:hover,
+.wpf-nav__toggle:focus-visible {
+	color: var(--wpf-color-primary);
+	background-color: var(--wpf-color-bg-alt);
+}
+
+.wpf-nav__burger {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	display: block;
+	width: 1.375rem;
+	height: 2px;
+	margin-left: calc(-1.375rem / 2);
+	margin-top: -1px;
+	background-color: currentColor;
+	border-radius: 1px;
+	transition:
+		transform var(--wpf-transition-base),
+		background-color var(--wpf-transition-fast);
+}
+
+.wpf-nav__burger::before,
+.wpf-nav__burger::after {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	content: '';
+	background-color: currentColor;
+	border-radius: 1px;
+	transition: transform var(--wpf-transition-base);
+}
+
+.wpf-nav__burger::before {
+	top: -6px;
+}
+
+.wpf-nav__burger::after {
+	top: 6px;
+}
+
+body.wpf-nav-is-open .wpf-nav__toggle .wpf-nav__burger {
+	background-color: transparent;
+}
+
+body.wpf-nav-is-open .wpf-nav__toggle .wpf-nav__burger::before {
+	top: 0;
+	transform: rotate(45deg);
+}
+
+body.wpf-nav-is-open .wpf-nav__toggle .wpf-nav__burger::after {
+	top: 0;
+	transform: rotate(-45deg);
+}
+
+/* Закрыть внутри панели (только мобила) */
+.wpf-nav__close {
+	display: none;
+	align-self: flex-end;
+	margin-bottom: var(--wpf-space-md);
+	padding: var(--wpf-space-xs) var(--wpf-space-sm);
+	font-size: 1.75rem;
+	line-height: 1;
+	color: var(--wpf-color-text-light);
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	border-radius: var(--wpf-radius-sm);
+	transition: color var(--wpf-transition-fast), background-color var(--wpf-transition-fast);
+}
+
+.wpf-nav__close:hover,
+.wpf-nav__close:focus-visible {
+	color: var(--wpf-color-heading);
+	background-color: var(--wpf-color-bg-alt);
+}
+
+/* Затемнение фона (только мобила) */
+.wpf-nav__backdrop {
+	display: none;
+}
+
+/* Навбар: десктоп — в строке шапки */
+.wpf-nav {
+	display: flex;
+	align-items: center;
+}
+
+.wpf-nav__list {
+	display: flex;
+	align-items: center;
+	gap: var(--wpf-space-xs);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.wpf-nav__item {
+	position: relative;
+}
+
+.wpf-nav__link {
+	display: block;
+	padding: var(--wpf-space-sm) var(--wpf-space-md);
+	font-size: var(--wpf-font-size-base);
+	font-weight: 500;
+	line-height: var(--wpf-line-height-normal);
+	text-decoration: none;
+	color: var(--wpf-color-text);
+	border-radius: var(--wpf-radius-md);
+	transition:
+		color var(--wpf-transition-fast),
+		background-color var(--wpf-transition-fast);
+}
+
+.wpf-nav__link:hover,
+.wpf-nav__link:focus-visible {
+	color: var(--wpf-color-primary);
+	background-color: var(--wpf-color-bg-alt);
+}
+
+.wpf-nav__link--active,
+.current-menu-item > .wpf-nav__link {
+	font-weight: 600;
+	color: var(--wpf-color-primary);
+}
+
+/* Подменю (десктоп) */
+.wpf-nav__submenu {
+	position: absolute;
+	top: calc(100% - 4px);
+	left: 0;
+	z-index: 100;
+	display: none;
+	min-width: 200px;
+	padding: var(--wpf-space-xs) 0;
+	margin: 0;
+	list-style: none;
+	background-color: var(--wpf-color-bg);
+	border: 1px solid var(--wpf-color-border);
+	border-radius: var(--wpf-radius-md);
+	box-shadow: var(--wpf-shadow-md);
+}
+
+.wpf-nav__item:hover > .wpf-nav__submenu,
+.wpf-nav__item.wpf-nav__item--hover > .wpf-nav__submenu,
+.wpf-nav__item:focus-within > .wpf-nav__submenu {
+	display: block;
+}
+
+.wpf-nav__submenu .wpf-nav__item {
+	width: 100%;
+}
+
+.wpf-nav__submenu .wpf-nav__link {
+	padding: var(--wpf-space-sm) var(--wpf-space-lg);
+	white-space: nowrap;
+	border-radius: 0;
+}
+
+.wpf-nav__submenu .wpf-nav__link:hover,
+.wpf-nav__submenu .wpf-nav__link:focus-visible {
+	background-color: var(--wpf-color-bg-alt);
+}
+
+.wpf-nav__submenu .wpf-nav__submenu {
+	top: 0;
+	left: calc(100% - 8px);
+}
+
+/* ——— Мобильный drawer ——— */
+@media (max-width: 768px) {
+	body.wpf-nav-is-open {
+		overflow: hidden;
+	}
+
+	.wpf-nav__toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.wpf-nav__close {
+		display: block;
+	}
+
+	.wpf-nav__backdrop {
+		position: fixed;
+		inset: 0;
+		z-index: 108;
+		display: block;
+		pointer-events: none;
+		visibility: hidden;
+		opacity: 0;
+		background-color: rgba(15, 23, 42, 0.5);
+		transition:
+			opacity var(--wpf-transition-base),
+			visibility var(--wpf-transition-base);
+	}
+
+	body.wpf-nav-is-open .wpf-nav__backdrop {
+		pointer-events: auto;
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.wpf-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 110;
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+		width: min(20rem, 88vw);
+		max-width: 100vw;
+		height: 100%;
+		min-height: 100dvh;
+		padding: var(--wpf-space-md) var(--wpf-space-lg) var(--wpf-space-xl);
+		overflow-x: hidden;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		background-color: var(--wpf-color-bg);
+		box-shadow: var(--wpf-shadow-lg);
+		transition: transform var(--wpf-transition-base);
+		transform: translateX(-100%);
+		align-items: stretch;
+		justify-content: flex-start;
+	}
+
+	body.wpf-nav-is-open .wpf-nav {
+		transform: translateX(0);
+	}
+
+	.wpf-nav__list {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0;
+	}
+
+	.wpf-nav__item {
+		border-bottom: 1px solid var(--wpf-color-border-light);
+	}
+
+	.wpf-nav__link {
+		padding: var(--wpf-space-md) var(--wpf-space-sm);
+		border-radius: 0;
+	}
+
+	/* Подменю в drawer — всегда развёрнуто */
+	.wpf-nav__submenu {
+		position: static;
+		top: auto;
+		left: auto;
+		z-index: auto;
+		display: block !important;
+		padding-bottom: var(--wpf-space-sm);
+		padding-left: var(--wpf-space-md);
+		margin-top: 0;
+		visibility: visible;
+		opacity: 1;
+		box-shadow: none;
+		border: none;
+		border-radius: 0;
+	}
+
+	.wpf-nav__submenu .wpf-nav__submenu {
+		left: auto;
+		padding-left: var(--wpf-space-lg);
+	}
+
+	.wpf-nav__submenu .wpf-nav__link {
+		white-space: normal;
+	}
+
+	.wpf-nav__submenu .wpf-nav__item {
+		border-bottom: none;
+	}
+}
+
+/* Десктоп: скрыть мобильные элементы */
+@media (min-width: 769px) {
+	body.wpf-nav-is-open .wpf-nav {
+		transform: none;
+	}
+
+	.wpf-nav__backdrop {
+		display: none !important;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	body.wpf-nav-is-open .wpf-nav__toggle .wpf-nav__burger,
+	body.wpf-nav-is-open .wpf-nav__toggle .wpf-nav__burger::before,
+	body.wpf-nav-is-open .wpf-nav__toggle .wpf-nav__burger::after,
+	.wpf-nav__burger,
+	.wpf-nav__burger::before,
+	.wpf-nav__burger::after,
+	.wpf-nav,
+	.wpf-nav__backdrop {
+		transition-duration: 0.01ms;
+		transition-delay: 0ms;
+	}
+}
+
+/* ---------------------------------------------------------
+   Header CTA button
+   --------------------------------------------------------- */
+
+.wpf-header__cta {
+	margin-left: var(--wpf-space-md);
+	flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+	.wpf-header__cta {
+		display: none !important;
+	}
+}
+
+/* ---------------------------------------------------------
+   Footer
+   --------------------------------------------------------- */
+
+.wpf-footer {
+	background-color: var(--wpf-color-bg-dark);
+	color: rgba(255, 255, 255, 0.70);
+}
+
+/* Top block */
+.wpf-footer__top {
+	padding: 4rem 0 3rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wpf-footer__grid {
+	display: grid;
+	grid-template-columns: 1.5fr 1fr 1fr;
+	gap: var(--wpf-space-2xl);
+}
+
+/* Brand column */
+.wpf-footer__brand-name {
+	font-size: var(--wpf-font-size-xl);
+	font-weight: 800;
+	margin-bottom: var(--wpf-space-sm);
+	letter-spacing: -0.01em;
+}
+
+.wpf-footer__brand-name a {
+	color: #fff;
+	text-decoration: none;
+	transition: color var(--wpf-transition-fast);
+}
+
+.wpf-footer__brand-name a:hover {
+	color: var(--wpf-color-primary);
+}
+
+.wpf-footer__brand-desc {
+	font-size: var(--wpf-font-size-sm);
+	color: rgba(255, 255, 255, 0.50);
+	line-height: var(--wpf-line-height-relaxed);
+	margin-bottom: var(--wpf-space-lg);
+	max-width: 280px;
+}
+
+.wpf-footer__tech {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wpf-space-sm);
+}
+
+.wpf-footer__tech-pill {
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	color: rgba(255, 255, 255, 0.55);
+	font-size: var(--wpf-font-size-xs);
+	font-weight: 500;
+	padding: 0.2rem 0.65rem;
+	border-radius: var(--wpf-radius-full);
+}
+
+/* Nav/links columns */
+.wpf-footer__col-title {
+	font-size: var(--wpf-font-size-xs);
+	font-weight: 700;
+	letter-spacing: 0.10em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.40);
+	margin-bottom: var(--wpf-space-lg);
+}
+
+.wpf-footer__menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--wpf-space-sm);
+}
+
+.wpf-footer__menu-link,
+.wpf-footer__menu a {
+	color: rgba(255, 255, 255, 0.65);
+	text-decoration: none;
+	font-size: var(--wpf-font-size-sm);
+	transition: color var(--wpf-transition-fast);
+}
+
+.wpf-footer__menu-link:hover,
+.wpf-footer__menu a:hover {
+	color: #fff;
+}
+
+/* Contact column */
+.wpf-footer__contact-text {
+	font-size: var(--wpf-font-size-sm);
+	color: rgba(255, 255, 255, 0.50);
+	line-height: var(--wpf-line-height-relaxed);
+	margin-bottom: var(--wpf-space-lg);
+}
+
+/* Bottom bar */
+.wpf-footer__bottom {
+	padding: var(--wpf-space-lg) 0;
+}
+
+.wpf-footer__bottom-inner {
+	flex-wrap: wrap;
+	gap: var(--wpf-space-md);
+}
+
+.wpf-footer__copyright,
+.wpf-footer__made-with {
+	font-size: var(--wpf-font-size-sm);
+	color: rgba(255, 255, 255, 0.35);
+}
+
+.wpf-footer__copyright a {
+	color: rgba(255, 255, 255, 0.55);
+	text-decoration: none;
+	transition: color var(--wpf-transition-fast);
+}
+
+.wpf-footer__copyright a:hover {
+	color: #fff;
+}
+
+/* Footer responsive */
+@media (max-width: 900px) {
+	.wpf-footer__grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.wpf-footer__col--brand {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 540px) {
+	.wpf-footer__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.wpf-footer__col--brand {
+		grid-column: auto;
+	}
+
+	.wpf-footer__bottom-inner {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+}

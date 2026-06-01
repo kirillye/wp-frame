@@ -1,0 +1,123 @@
+/*--------------------------------------------------------------
+CSS Custom Properties
+--------------------------------------------------------------*/
+
+:root {
+	/* Colors */
+	--wpf-color-primary: #2563eb;
+	--wpf-color-primary-hover: #1d4ed8;
+	--wpf-color-primary-light: #dbeafe;
+	--wpf-color-secondary: #7c3aed;
+	--wpf-color-accent: #f59e0b;
+
+	--wpf-color-text: #1e293b;
+	--wpf-color-text-light: #64748b;
+	--wpf-color-heading: #0f172a;
+
+	--wpf-color-bg: #ffffff;
+	--wpf-color-bg-alt: #f8fafc;
+	--wpf-color-bg-dark: #0f172a;
+
+	--wpf-color-border: #e2e8f0;
+	--wpf-color-border-light: #f1f5f9;
+
+	/* Typography */
+	--wpf-font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	--wpf-font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	--wpf-font-mono: 'Courier 10 Pitch', courier, monospace;
+
+	--wpf-font-size-xs: 0.75rem;    /* 12px */
+	--wpf-font-size-sm: 0.875rem;   /* 14px */
+	--wpf-font-size-base: 1rem;     /* 16px */
+	--wpf-font-size-lg: 1.125rem;   /* 18px */
+	--wpf-font-size-xl: 1.25rem;    /* 20px */
+	--wpf-font-size-2xl: 1.5rem;    /* 24px */
+	--wpf-font-size-3xl: 1.875rem;  /* 30px */
+	--wpf-font-size-4xl: 2.25rem;   /* 36px */
+	--wpf-font-size-5xl: 3rem;      /* 48px */
+
+	--wpf-line-height-tight: 1.25;
+	--wpf-line-height-normal: 1.5;
+	--wpf-line-height-relaxed: 1.75;
+
+	/* Spacing */
+	--wpf-space-xs: 0.25rem;   /* 4px */
+	--wpf-space-sm: 0.5rem;    /* 8px */
+	--wpf-space-md: 1rem;      /* 16px */
+	--wpf-space-lg: 1.5rem;    /* 24px */
+	--wpf-space-xl: 2rem;      /* 32px */
+	--wpf-space-2xl: 3rem;     /* 48px */
+	--wpf-space-3xl: 4rem;     /* 64px */
+
+	/* Layout */
+	--wpf-container-max: 1200px;
+	--wpf-container-narrow: 800px;
+	--wpf-container-padding: 1rem;
+	--wpf-gap: 1.5rem;
+
+	/* Borders */
+	--wpf-radius-sm: 4px;
+	--wpf-radius-md: 8px;
+	--wpf-radius-lg: 12px;
+	--wpf-radius-full: 9999px;
+
+	/* Shadows */
+	--wpf-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--wpf-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	--wpf-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+	/* Transitions */
+	--wpf-transition-fast: 150ms ease;
+	--wpf-transition-base: 300ms ease;
+	--wpf-transition-slow: 500ms ease;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--wpf-color-primary: #3b82f6;
+		--wpf-color-primary-hover: #60a5fa;
+		--wpf-color-primary-light: #1e3a5f;
+		--wpf-color-secondary: #8b5cf6;
+		--wpf-color-accent: #fbbf24;
+
+		--wpf-color-text: #e2e8f0;
+		--wpf-color-text-light: #94a3b8;
+		--wpf-color-heading: #f8fafc;
+
+		--wpf-color-bg: #0f172a;
+		--wpf-color-bg-alt: #1e293b;
+		--wpf-color-bg-dark: #020617;
+
+		--wpf-color-border: #334155;
+		--wpf-color-border-light: #1e293b;
+
+		--wpf-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+		--wpf-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+		--wpf-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+	}
+}
+
+/* Manual dark mode toggle */
+[data-theme='dark'] {
+	--wpf-color-primary: #3b82f6;
+	--wpf-color-primary-hover: #60a5fa;
+	--wpf-color-primary-light: #1e3a5f;
+	--wpf-color-secondary: #8b5cf6;
+	--wpf-color-accent: #fbbf24;
+
+	--wpf-color-text: #e2e8f0;
+	--wpf-color-text-light: #94a3b8;
+	--wpf-color-heading: #f8fafc;
+
+	--wpf-color-bg: #0f172a;
+	--wpf-color-bg-alt: #1e293b;
+	--wpf-color-bg-dark: #020617;
+
+	--wpf-color-border: #334155;
+	--wpf-color-border-light: #1e293b;
+
+	--wpf-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+	--wpf-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+	--wpf-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}

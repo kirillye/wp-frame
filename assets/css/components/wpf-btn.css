@@ -1,0 +1,111 @@
+/*--------------------------------------------------------------
+Component: Button (BEM)
+--------------------------------------------------------------*/
+.wpf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--wpf-space-sm);
+  padding: 0.625rem 1.25rem;
+  font-size: var(--wpf-font-size-base);
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--wpf-radius-md);
+  cursor: pointer;
+  transition: all var(--wpf-transition-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.zed
+
+/* Primary variant */
+.wpf-btn--primary {
+  background-color: var(--wpf-color-primary);
+  color: #ffffff;
+  border-color: var(--wpf-color-primary);
+}
+
+.wpf-btn--primary:hover,
+.wpf-btn--primary:focus {
+  background-color: var(--wpf-color-primary-hover);
+  border-color: var(--wpf-color-primary-hover);
+  color: #ffffff;
+}
+
+/* Secondary variant */
+.wpf-btn--secondary {
+  background-color: transparent;
+  color: var(--wpf-color-primary);
+  border-color: var(--wpf-color-primary);
+}
+
+.wpf-btn--secondary:hover,
+.wpf-btn--secondary:focus {
+  background-color: var(--wpf-color-primary);
+  color: #ffffff;
+}
+
+/* Ghost variant */
+.wpf-btn--ghost {
+  background-color: transparent;
+  color: var(--wpf-color-text);
+  border-color: transparent;
+}
+
+.wpf-btn--ghost:hover,
+.wpf-btn--ghost:focus {
+  background-color: var(--wpf-color-bg-alt);
+  color: var(--wpf-color-primary);
+}
+
+/* Sizes */
+.wpf-btn--sm {
+  padding: 0.375rem 0.75rem;
+  font-size: var(--wpf-font-size-sm);
+}
+
+.wpf-btn--lg {
+  padding: 0.75rem 1.5rem;
+  font-size: var(--wpf-font-size-lg);
+}
+
+/* Full width */
+.wpf-btn--block {
+  display: flex;
+  width: 100%;
+}
+
+/* Disabled */
+.wpf-btn:disabled,
+.wpf-btn--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Loading state */
+.wpf-btn--loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.wpf-btn--loading::after {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: wpf-btn-spin 0.6s linear infinite;
+}
+
+@keyframes wpf-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,95 @@
+/*--------------------------------------------------------------
+Component: Card (BEM)
+--------------------------------------------------------------*/
+
+.wpf-card {
+	background-color: var(--wpf-color-bg);
+	border: 1px solid var(--wpf-color-border);
+	border-radius: var(--wpf-radius-lg);
+	overflow: hidden;
+	transition: box-shadow var(--wpf-transition-base), transform var(--wpf-transition-base);
+}
+
+.wpf-card:hover {
+	box-shadow: var(--wpf-shadow-md);
+	transform: translateY(-2px);
+}
+
+/* Elements */
+.wpf-card__image {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.wpf-card__body {
+	padding: var(--wpf-space-lg);
+}
+
+.wpf-card__title {
+	font-size: var(--wpf-font-size-xl);
+	font-weight: 700;
+	color: var(--wpf-color-heading);
+	margin-bottom: var(--wpf-space-sm);
+}
+
+.wpf-card__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.wpf-card__title a:hover {
+	color: var(--wpf-color-primary);
+}
+
+.wpf-card__meta {
+	font-size: var(--wpf-font-size-sm);
+	color: var(--wpf-color-text-light);
+	margin-bottom: var(--wpf-space-md);
+}
+
+.wpf-card__excerpt {
+	font-size: var(--wpf-font-size-base);
+	color: var(--wpf-color-text);
+	line-height: var(--wpf-line-height-relaxed);
+}
+
+.wpf-card__footer {
+	padding: var(--wpf-space-md) var(--wpf-space-lg);
+	border-top: 1px solid var(--wpf-color-border);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* Modifiers */
+.wpf-card--featured {
+	border-color: var(--wpf-color-primary);
+	border-width: 2px;
+}
+
+.wpf-card--featured .wpf-card__title {
+	color: var(--wpf-color-primary);
+}
+
+.wpf-card--horizontal {
+	display: flex;
+	flex-direction: row;
+}
+
+.wpf-card--horizontal .wpf-card__image {
+	width: 300px;
+	min-height: 100%;
+	aspect-ratio: auto;
+}
+
+@media (max-width: 768px) {
+	.wpf-card--horizontal {
+		flex-direction: column;
+	}
+
+	.wpf-card--horizontal .wpf-card__image {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+	}
+}
