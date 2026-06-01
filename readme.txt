@@ -1,6 +1,6 @@
 === WP Frame ===
 
-Contributors: inver
+Contributors: Inveris
 Tags: custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, block-styles
 
 Requires at least: 6.0

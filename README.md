@@ -5,7 +5,7 @@
 
 ## Возможности
 
-- Формы через REST (`/wp-json/myt/v1/form/submit`), журнал заявок (CPT), каналы Email / Telegram / Bitrix24  
+- Формы через REST (`/wp-json/myt/v1/form/submit`), журнал заявок (CPT), каналы Email / Telegram / Bitrix24
 - Защита форм (rate limit, honeypot, timing token, referer)  
 - Страница настроек в админке (каналы, cookies, контакты, соцсети, скрипты в head)  
 - Стили в `assets/css/`, скрипты в `assets/js/`, модули в `assets/js/modules/`
